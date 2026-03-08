@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>untitled - Paint</title>
     <style>
+        :root {
+            --silver-base: #c7cdd6;
+            --silver-surface: linear-gradient(180deg, #e8ecf1 0%, #c5ccd5 52%, #dbe1e8 100%);
+            --silver-surface-flat: #c7cdd6;
+            --silver-highlight: #f8fbff;
+            --silver-soft-highlight: #e7edf4;
+            --silver-mid: #d6dce4;
+            --silver-dark: #8a93a0;
+            --silver-shadow: #5e6672;
+            --silver-shadow-deep: #2f3640;
+            --steel-accent: #5f6c7d;
+            --steel-accent-light: #b7c2d0;
+            --desktop-gradient:
+                radial-gradient(circle at top, rgba(255, 255, 255, 0.35), transparent 38%),
+                linear-gradient(135deg, #5f6977 0%, #8d98a8 38%, #bcc6d1 68%, #eef3f8 100%);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +31,7 @@
         body {
             font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif;
             font-size: 11px;
-            background: #008080;
+            background: var(--desktop-gradient);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -24,10 +41,10 @@
         }
 
         .window {
-            background: #C0C0C0;
+            background: var(--silver-surface);
             border: 2px solid;
-            border-color: #FFFFFF #808080 #808080 #FFFFFF;
-            box-shadow: inset 1px 1px 0 #DFDFDF, inset -1px -1px 0 #0A0A0A;
+            border-color: var(--silver-highlight) var(--silver-dark) var(--silver-dark) var(--silver-highlight);
+            box-shadow: inset 1px 1px 0 var(--silver-soft-highlight), inset -1px -1px 0 var(--silver-shadow-deep), 0 12px 28px rgba(29, 35, 43, 0.24);
             display: flex;
             flex-direction: column;
             width: 800px;
@@ -37,7 +54,7 @@
         }
 
         .title-bar {
-            background: linear-gradient(90deg, #000080, #1084d0);
+            background: linear-gradient(90deg, #5a6472 0%, #a6b1bf 48%, #dbe2ea 100%);
             color: white;
             padding: 2px 3px;
             display: flex;
@@ -74,9 +91,9 @@
         .title-btn {
             width: 16px;
             height: 14px;
-            background: #C0C0C0;
+            background: linear-gradient(180deg, #eef2f6 0%, #c2c9d2 100%);
             border: 1px solid;
-            border-color: #FFFFFF #808080 #808080 #FFFFFF;
+            border-color: var(--silver-highlight) var(--silver-dark) var(--silver-dark) var(--silver-highlight);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -87,14 +104,14 @@
         }
 
         .title-btn:active {
-            border-color: #808080 #FFFFFF #FFFFFF #808080;
+            border-color: var(--silver-dark) var(--silver-highlight) var(--silver-highlight) var(--silver-dark);
         }
 
         .menu-bar {
-            background: #C0C0C0;
+            background: var(--silver-surface);
             display: flex;
             padding: 2px 0;
-            border-bottom: 1px solid #808080;
+            border-bottom: 1px solid var(--silver-dark);
         }
 
         .menu-item {
@@ -104,7 +121,7 @@
         }
 
         .menu-item:hover, .menu-item.active {
-            background: #000080;
+            background: var(--steel-accent);
             color: white;
         }
 
@@ -117,9 +134,9 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: #C0C0C0;
+            background: var(--silver-surface);
             border: 2px solid;
-            border-color: #FFFFFF #808080 #808080 #FFFFFF;
+            border-color: var(--silver-highlight) var(--silver-dark) var(--silver-dark) var(--silver-highlight);
             box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
             z-index: 1000;
             min-width: 150px;
@@ -138,24 +155,24 @@
         }
 
         .dropdown-item:hover {
-            background: #000080;
+            background: var(--steel-accent);
             color: white;
         }
 
         .dropdown-item.disabled {
-            color: #808080;
+            color: var(--silver-dark);
         }
 
         .dropdown-item.disabled:hover {
             background: transparent;
-            color: #808080;
+            color: var(--silver-dark);
         }
 
         .dropdown-separator {
             height: 1px;
-            background: #808080;
+            background: var(--silver-dark);
             margin: 2px 2px;
-            border-bottom: 1px solid #FFFFFF;
+            border-bottom: 1px solid var(--silver-highlight);
         }
 
         .dropdown-item .shortcut {
@@ -171,8 +188,8 @@
 
         .toolbar {
             width: 56px;
-            background: #C0C0C0;
-            border-right: 1px solid #808080;
+            background: var(--silver-surface);
+            border-right: 1px solid var(--silver-dark);
             display: flex;
             flex-direction: column;
             padding: 4px;
@@ -183,18 +200,18 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1px;
-            background: #808080;
+            background: var(--silver-dark);
             border: 1px solid;
-            border-color: #FFFFFF #808080 #808080 #FFFFFF;
+            border-color: var(--silver-highlight) var(--silver-dark) var(--silver-dark) var(--silver-highlight);
             padding: 1px;
         }
 
         .tool-btn {
             width: 24px;
             height: 24px;
-            background: #C0C0C0;
+            background: linear-gradient(180deg, #edf1f6 0%, #c2cad4 100%);
             border: 1px solid;
-            border-color: #FFFFFF #808080 #808080 #FFFFFF;
+            border-color: var(--silver-highlight) var(--silver-dark) var(--silver-dark) var(--silver-highlight);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -203,16 +220,16 @@
         }
 
         .tool-btn:hover {
-            border-color: #808080 #FFFFFF #FFFFFF #808080;
+            border-color: var(--silver-dark) var(--silver-highlight) var(--silver-highlight) var(--silver-dark);
         }
 
         .tool-btn.selected {
             background: #FFFFFF;
-            border-color: #808080 #FFFFFF #FFFFFF #808080;
+            border-color: var(--silver-dark) var(--silver-highlight) var(--silver-highlight) var(--silver-dark);
         }
 
         .tool-btn:active {
-            border-color: #808080 #FFFFFF #FFFFFF #808080;
+            border-color: var(--silver-dark) var(--silver-highlight) var(--silver-highlight) var(--silver-dark);
         }
 
         .tool-btn svg {
@@ -222,9 +239,9 @@
 
         .options-panel {
             margin-top: 4px;
-            background: #C0C0C0;
+            background: var(--silver-surface);
             border: 1px solid;
-            border-color: #808080 #FFFFFF #FFFFFF #808080;
+            border-color: var(--silver-dark) var(--silver-highlight) var(--silver-highlight) var(--silver-dark);
             padding: 4px;
             min-height: 60px;
         }
@@ -242,7 +259,7 @@
         .size-btn {
             background: #FFFFFF;
             border: 1px solid;
-            border-color: #808080 #FFFFFF #FFFFFF #808080;
+            border-color: var(--silver-dark) var(--silver-highlight) var(--silver-highlight) var(--silver-dark);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -250,12 +267,12 @@
         }
 
         .size-btn:hover {
-            border-color: #000080;
+            border-color: var(--steel-accent);
         }
 
         .size-btn.selected {
-            border-color: #000080;
-            background: #D4D0C8;
+            border-color: var(--steel-accent);
+            background: var(--silver-mid);
         }
 
         .brush-sizes .size-btn {
@@ -277,7 +294,7 @@
             height: 20px;
             background: #FFFFFF;
             border: 1px solid;
-            border-color: #808080 #FFFFFF #FFFFFF #808080;
+            border-color: var(--silver-dark) var(--silver-highlight) var(--silver-highlight) var(--silver-dark);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -285,12 +302,12 @@
         }
 
         .shape-option:hover, .shape-option.selected {
-            border-color: #000080;
+            border-color: var(--steel-accent);
         }
 
         .canvas-area {
             flex: 1;
-            background: #808080;
+            background: linear-gradient(180deg, #7c8796 0%, #66707e 100%);
             overflow: auto;
             position: relative;
         }
@@ -310,8 +327,8 @@
         }
 
         .color-palette {
-            background: #C0C0C0;
-            border-top: 1px solid #FFFFFF;
+            background: var(--silver-surface);
+            border-top: 1px solid var(--silver-highlight);
             display: flex;
             align-items: center;
             padding: 4px 8px;
@@ -327,7 +344,7 @@
 
         .color-box {
             border: 1px solid;
-            border-color: #808080 #FFFFFF #FFFFFF #808080;
+            border-color: var(--silver-dark) var(--silver-highlight) var(--silver-highlight) var(--silver-dark);
             background: #FFFFFF;
         }
 
@@ -353,8 +370,8 @@
             grid-template-columns: repeat(14, 1fr);
             gap: 0;
             border: 1px solid;
-            border-color: #808080 #FFFFFF #FFFFFF #808080;
-            background: #808080;
+            border-color: var(--silver-dark) var(--silver-highlight) var(--silver-highlight) var(--silver-dark);
+            background: var(--silver-dark);
             padding: 1px;
         }
 
@@ -362,7 +379,7 @@
             width: 16px;
             height: 12px;
             cursor: pointer;
-            border: 1px solid #808080;
+            border: 1px solid var(--silver-dark);
         }
 
         .palette-color:hover {
@@ -371,9 +388,9 @@
 
         .edit-colors-btn {
             padding: 4px 8px;
-            background: #C0C0C0;
+            background: var(--silver-surface);
             border: 2px solid;
-            border-color: #FFFFFF #808080 #808080 #FFFFFF;
+            border-color: var(--silver-highlight) var(--silver-dark) var(--silver-dark) var(--silver-highlight);
             cursor: pointer;
             font-size: 10px;
             display: flex;
@@ -382,12 +399,12 @@
         }
 
         .edit-colors-btn:active {
-            border-color: #808080 #FFFFFF #FFFFFF #808080;
+            border-color: var(--silver-dark) var(--silver-highlight) var(--silver-highlight) var(--silver-dark);
         }
 
         .status-bar {
-            background: #C0C0C0;
-            border-top: 1px solid #FFFFFF;
+            background: var(--silver-surface);
+            border-top: 1px solid var(--silver-highlight);
             display: flex;
             padding: 2px 4px;
             gap: 4px;
@@ -397,7 +414,7 @@
 
         .status-item {
             border: 1px solid;
-            border-color: #808080 #FFFFFF #FFFFFF #808080;
+            border-color: var(--silver-dark) var(--silver-highlight) var(--silver-highlight) var(--silver-dark);
             padding: 0 8px;
             display: flex;
             align-items: center;
@@ -442,16 +459,16 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: #C0C0C0;
+            background: var(--silver-surface);
             border: 2px solid;
-            border-color: #FFFFFF #808080 #808080 #FFFFFF;
+            border-color: var(--silver-highlight) var(--silver-dark) var(--silver-dark) var(--silver-highlight);
             box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
             z-index: 10000;
             min-width: 300px;
         }
 
         .dialog-title {
-            background: linear-gradient(90deg, #000080, #1084d0);
+            background: linear-gradient(90deg, #5a6472 0%, #a6b1bf 48%, #dbe2ea 100%);
             color: white;
             padding: 2px 4px;
             font-weight: bold;
@@ -463,9 +480,9 @@
         .dialog-close {
             width: 16px;
             height: 14px;
-            background: #C0C0C0;
+            background: linear-gradient(180deg, #eef2f6 0%, #c2c9d2 100%);
             border: 1px solid;
-            border-color: #FFFFFF #808080 #808080 #FFFFFF;
+            border-color: var(--silver-highlight) var(--silver-dark) var(--silver-dark) var(--silver-highlight);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -475,7 +492,7 @@
         }
 
         .dialog-close:active {
-            border-color: #808080 #FFFFFF #FFFFFF #808080;
+            border-color: var(--silver-dark) var(--silver-highlight) var(--silver-highlight) var(--silver-dark);
         }
 
         .dialog-content {
@@ -487,20 +504,20 @@
             justify-content: center;
             gap: 8px;
             padding: 8px;
-            border-top: 1px solid #808080;
+            border-top: 1px solid var(--silver-dark);
         }
 
         .dialog-btn {
             min-width: 75px;
             padding: 4px 12px;
-            background: #C0C0C0;
+            background: var(--silver-surface);
             border: 2px solid;
-            border-color: #FFFFFF #808080 #808080 #FFFFFF;
+            border-color: var(--silver-highlight) var(--silver-dark) var(--silver-dark) var(--silver-highlight);
             cursor: pointer;
         }
 
         .dialog-btn:active {
-            border-color: #808080 #FFFFFF #FFFFFF #808080;
+            border-color: var(--silver-dark) var(--silver-highlight) var(--silver-highlight) var(--silver-dark);
         }
 
         .dialog-btn:focus {
@@ -524,7 +541,7 @@
             width: 20px;
             height: 16px;
             cursor: pointer;
-            border: 1px solid #808080;
+            border: 1px solid var(--silver-dark);
         }
 
         .basic-color:hover, .basic-color.selected {
@@ -542,7 +559,7 @@
             width: 20px;
             height: 16px;
             cursor: pointer;
-            border: 1px solid #808080;
+            border: 1px solid var(--silver-dark);
             background: #FFFFFF;
         }
 
@@ -553,7 +570,7 @@
             background: linear-gradient(to bottom, transparent, black),
                         linear-gradient(to right, white, red);
             cursor: crosshair;
-            border: 1px solid #808080;
+            border: 1px solid var(--silver-dark);
         }
 
         .spectrum-cursor {
@@ -576,7 +593,7 @@
             width: 20px;
             height: 150px;
             background: linear-gradient(to bottom, white, transparent, black);
-            border: 1px solid #808080;
+            border: 1px solid var(--silver-dark);
             position: relative;
             cursor: pointer;
         }
@@ -594,7 +611,7 @@
         .color-preview {
             width: 60px;
             height: 40px;
-            border: 1px solid #808080;
+            border: 1px solid var(--silver-dark);
             margin-top: 8px;
         }
 
@@ -618,7 +635,7 @@
         .color-input-row input {
             width: 50px;
             padding: 2px 4px;
-            border: 1px solid #808080;
+            border: 1px solid var(--silver-dark);
             background: white;
         }
 
@@ -687,7 +704,7 @@
         .input-row input {
             width: 50px;
             padding: 2px 4px;
-            border: 1px solid #808080;
+            border: 1px solid var(--silver-dark);
             background: white;
         }
 
@@ -719,30 +736,30 @@
         }
 
         .canvas-area::-webkit-scrollbar-track {
-            background: #C0C0C0;
-            border: 1px solid #808080;
+            background: var(--silver-surface-flat);
+            border: 1px solid var(--silver-dark);
         }
 
         .canvas-area::-webkit-scrollbar-thumb {
-            background: #C0C0C0;
+            background: var(--silver-surface);
             border: 2px solid;
-            border-color: #FFFFFF #808080 #808080 #FFFFFF;
+            border-color: var(--silver-highlight) var(--silver-dark) var(--silver-dark) var(--silver-highlight);
         }
 
         .canvas-area::-webkit-scrollbar-thumb:hover {
-            background: #D4D0C8;
+            background: var(--silver-mid);
         }
 
         .canvas-area::-webkit-scrollbar-button {
-            background: #C0C0C0;
+            background: var(--silver-surface);
             border: 2px solid;
-            border-color: #FFFFFF #808080 #808080 #FFFFFF;
+            border-color: var(--silver-highlight) var(--silver-dark) var(--silver-dark) var(--silver-highlight);
             width: 16px;
             height: 16px;
         }
 
         .canvas-area::-webkit-scrollbar-corner {
-            background: #C0C0C0;
+            background: var(--silver-surface-flat);
         }
 
         /* Hidden class */
@@ -755,7 +772,7 @@
             position: absolute;
             width: 6px;
             height: 6px;
-            background: #000080;
+            background: var(--steel-accent);
             border: 1px solid white;
         }
 
@@ -769,7 +786,7 @@
         <div class="title-bar">
             <div class="title-bar-left">
                 <svg class="title-bar-icon" viewBox="0 0 16 16">
-                    <rect x="2" y="2" width="12" height="12" fill="#C0C0C0" stroke="#000" stroke-width="1"/>
+                    <rect x="2" y="2" width="12" height="12" fill="#cfd5dd" stroke="#000" stroke-width="1"/>
                     <rect x="4" y="4" width="3" height="3" fill="#FF0000"/>
                     <rect x="8" y="4" width="3" height="3" fill="#FFFF00"/>
                     <rect x="4" y="8" width="3" height="3" fill="#00FF00"/>
@@ -1128,7 +1145,7 @@
         <div class="about-content">
             <h2>Paint98</h2>
             <p>A Windows 98 Paint Clone</p>
-            <p style="margin-top:12px; color:#808080;">Version 1.0</p>
+            <p style="margin-top:12px; color:var(--silver-dark);">Version 1.0</p>
             <p style="margin-top:12px;">Web-based recreation of the classic<br>Microsoft Paint from Windows 98.</p>
         </div>
         <div class="dialog-buttons">
